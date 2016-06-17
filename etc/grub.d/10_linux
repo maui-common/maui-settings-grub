@@ -37,7 +37,7 @@ if [ "x${GRUB_DISTRIBUTOR}" = "x" ] ; then
   OS=GNU/Linux
 else
   case ${GRUB_DISTRIBUTOR} in
-    Ubuntu|Kubuntu|Netrunner)
+    Ubuntu|Kubuntu|Maui)
       OS="${GRUB_DISTRIBUTOR}"
       ;;
     *)
