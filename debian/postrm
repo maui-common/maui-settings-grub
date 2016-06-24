@@ -7,12 +7,6 @@ function grub_customization {
   dpkg-divert --package maui-settings-grub --add --rename --divert /usr/share/default-settings/grub_10_linux.orig /etc/grub.d/10_linux
 }
 
-function grub_theme {
-  Grub_File="/etc/default/grub"
-  sed '/^GRUB_THEME=/ d' <$Grub_File >$Grub_File.~
-  mv $Grub_File.~ $Grub_File
-}
-
 # summary of how this script can be called:
 #        * <prerm> `remove'
 #        * <old-prerm> `upgrade' <new-version>
@@ -28,7 +22,6 @@ function grub_theme {
 case "$1" in
     remove|abort-install|disappear|purge)
 		grub_customization ;
-		grub_theme;
 	;;
     failed-upgrade)
         ;;
